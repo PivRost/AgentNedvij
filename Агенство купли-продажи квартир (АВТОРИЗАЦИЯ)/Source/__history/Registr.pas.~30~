@@ -1,0 +1,66 @@
+unit Registr;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
+  Data.Win.ADODB, Data.DB, System.RegularExpressions, IBX.IBCustomDataSet,
+  IBX.IBQuery, IBX.IBDatabase, IBX.IBTable;
+
+type
+  TRegForm = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Button1: TButton;
+    DataSource1: TDataSource;
+    IBDatabase1: TIBDatabase;
+    IBTransaction1: TIBTransaction;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    IBQuery1: TIBQuery;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  RegForm: TRegForm;
+  regex:tregex;  //регулярное выражение для этого прописали в uses System.RegularExpressions
+
+implementation
+
+{$R *.dfm}
+
+
+
+
+procedure TRegForm.Button1Click(Sender: TObject);
+  var
+  logi: string; //задаем переменные логин
+  pass: string; //задаем переменные пароль
+begin
+  logi:=edit1.text; //переменную логина приравниваем к едиту логина
+  pass:=edit2.text;   //переменную пароля приравниваем к едиту пароля
+  RegEx := TRegEx.Create('^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[#?!@$ %^&*-]).{6,}$');// Определяем то, что ищем, собственно регулярное выражение
+//Далее определяем текст, в котором ищем
+  if (regex.ismatch(pass))  then   //проверям совпадают ли шаблоны
+begin
+ibquery1.SQL.Add('insert into autoriz (logi,pass)');  //вставляем значения в БД
+ibquery1.SQL.Add('VALUES ( :Param1, :Param2)');
+IBQuery1.Prepare; // отправить запрос на сервер, проверить его корректность и т.п.
+RegFORM.iBQuery1.fields[0].asString:=logi;  //параметр который заносится в таблицу берутся из едита логин
+RegFORM.iBQuery1.fields[1].asString:=pass;     //параметр который заносится в таблицу берутся из едита пароль
+ibquery1.execSQL; //выполняет запрос
+showmessage('Вы завершили регистрацию');
+RegForm.close;
+end
+else
+showmessage('Пароль не слишком надежен!');  //сообшение, если пароль не подходит по критериям
+end;
+
+
+end.

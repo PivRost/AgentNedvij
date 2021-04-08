@@ -1,0 +1,18 @@
+program Reg;
+
+uses
+  Vcl.Forms,
+  GlavnForma in 'GlavnForma.pas' {Form1},
+  Tipnedvij in 'Tipnedvij.pas' {Tip},
+  Spisokrab in 'Spisokrab.pas' {Spisok};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TTip, Tip);
+  Application.CreateForm(TSpisok, Spisok);
+  Application.Run;
+end.

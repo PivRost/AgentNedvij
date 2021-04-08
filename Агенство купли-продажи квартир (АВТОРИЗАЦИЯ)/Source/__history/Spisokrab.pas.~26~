@@ -1,0 +1,90 @@
+unit Spisokrab;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.StdCtrls,
+  Vcl.Grids, Vcl.DBGrids, IBX.IBCustomDataSet, IBX.IBTable, IBX.IBDatabase,
+  Vcl.Menus;
+
+type
+  TSpisok = class(TForm)
+    Nachalo: TButton;
+    vverx: TButton;
+    vniz: TButton;
+    konec: TButton;
+    IBDatabase1: TIBDatabase;
+    IBTransaction1: TIBTransaction;
+    IBTable1: TIBTable;
+    DataSource1: TDataSource;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    DBGrid1: TDBGrid;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    MainMenu1: TMainMenu;
+    N1: TMenuItem;
+    N011: TMenuItem;
+    N021: TMenuItem;
+    N031: TMenuItem;
+    N041: TMenuItem;
+    N051: TMenuItem;
+    N061: TMenuItem;
+    N071: TMenuItem;
+    procedure NachaloClick(Sender: TObject);
+    procedure vnizClick(Sender: TObject);
+    procedure vverxClick(Sender: TObject);
+    procedure konecClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Spisok: TSpisok;
+
+implementation
+
+{$R *.dfm}
+
+
+
+
+procedure TSpisok.konecClick(Sender: TObject);
+begin
+if not Ibtable1.eof then                               // в конец
+Ibtable1.last else
+messageDlg('Конец записи',mtinformation,[Mbok],0);
+end;
+
+procedure TSpisok.NachaloClick(Sender: TObject);
+begin
+if not Ibtable1.bof then
+Ibtable1.first else                                 //   в начало
+messageDlg('Начало записи',mtinformation,[Mbok],0);
+end;
+
+procedure TSpisok.VnizClick(Sender: TObject);
+begin
+if not Ibtable1.eof then
+Ibtable1.next
+else
+messageDlg('Конец записи',mtinformation,[Mbok],0);
+end;
+
+procedure TSpisok.vverxClick(Sender: TObject);
+begin
+if not Ibtable1.bof then                             //     назад
+Ibtable1.prior
+else
+messageDlg('начало записи',mtinformation,[Mbok],0);
+end;
+end.

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.525,D:\3 курс\Бакулин\KУРСОВАЯ\Агенство купли-продажи квартир (АВТОРИЗАЦИЯ)\Source\nedvij\Nedvijimost.pas=C:\Users\xtaof\Documents\Embarcadero\Studio\Projects\Nedvijimost.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.525,D:\3 курс\Бакулин\KУРСОВАЯ\Агенство купли-продажи квартир (АВТОРИЗАЦИЯ)\Source\nedvij\Nedvijimost.dfm=C:\Users\xtaof\Documents\Embarcadero\Studio\Projects\Nedvijimost.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.568,=C:\Users\xtaof\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.485,C:\Users\xtaof\Documents\Embarcadero\Studio\Projects\Nedvijimost.dfm=C:\Users\xtaof\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.185,D:\3 курс\Бакулин\KУРСОВАЯ\Агенство купли-продажи квартир (АВТОРИЗАЦИЯ)\Source\nedvij\Nedvij.dproj=C:\Users\xtaof\Documents\Embarcadero\Studio\Projects\Nedvij.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.710,C:\Users\xtaof\Documents\Embarcadero\Studio\Projects\Nedvij.dproj=C:\Users\xtaof\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.485,C:\Users\xtaof\Documents\Embarcadero\Studio\Projects\Nedvijimost.pas=C:\Users\xtaof\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+  </Transactions>
+</BorlandProject>

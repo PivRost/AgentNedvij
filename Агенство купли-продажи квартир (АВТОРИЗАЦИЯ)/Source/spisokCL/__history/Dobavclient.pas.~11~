@@ -1,0 +1,217 @@
+unit Dobavclient;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, IBX.IBCustomDataSet,
+  IBX.IBQuery, IBX.IBDatabase, Vcl.StdCtrls;
+
+type
+  TDobavCL = class(TForm)
+    Kodpok: TEdit;
+    Label1: TLabel;
+    Impok: TEdit;
+    Label2: TLabel;
+    Otpok: TEdit;
+    Label3: TLabel;
+    Fampok: TEdit;
+    Label4: TLabel;
+    Telpok: TEdit;
+    Label5: TLabel;
+    Paspok: TEdit;
+    Label7: TLabel;
+    Innpok: TEdit;
+    Label8: TLabel;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
+    IBQuery1: TIBQuery;
+    IBDatabase1: TIBDatabase;
+    IBTransaction1: TIBTransaction;
+    DataSource1: TDataSource;
+    Button8: TButton;
+    IBQuery1ID_CUSTIMERS: TIntegerField;
+    IBQuery1FIRSTNAME: TIBStringField;
+    IBQuery1LASTNAME: TIBStringField;
+    IBQuery1PATRONYMIC: TIBStringField;
+    IBQuery1TEL_CUSTOMERS: TIBStringField;
+    IBQuery1PASSPORT: TIBStringField;
+    IBQuery1INN: TIBStringField;
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+  Tclient = class (tobject)
+  kodpok: integer;
+  impok: string;
+  fampok: string;
+  otpok: string;
+  telpok: string;
+  paspok: string;
+  innpok: string;
+  procedure showdata;
+  procedure datavalue;
+  end;
+
+var
+  DobavCL: TDobavCL;
+  client:Tclient;
+  procedure DobavC; external 'dobavclienta.dll';
+
+implementation
+
+{$R *.dfm}
+procedure tclient.datavalue;
+begin  //задаем значения едитам по записям в БД
+client.kodpok:=DobavCL.IBQuery1.Fields[0].AsInteger;
+client.impok:=DobavCL.IBQuery1.Fields[1].AsString;
+client.fampok:=DobavCL.IBQuery1.Fields[2].AsString;
+client.otpok:=DobavCL.IBQuery1.Fields[3].AsString;
+client.telpok:=DobavCL.IBQuery1.Fields[4].AsString;
+client.paspok:=DobavCL.IBQuery1.Fields[5].AsString;
+client.innpok:=DobavCL.IBQuery1.Fields[6].AsString;
+end;
+
+procedure Tclient.showdata;
+begin
+DobavCL.kodpok.Text:=inttostr(client.kodpok);
+DobavCL.impok.Text:=client.impok;
+DobavCL.fampok.Text:=client.fampok;
+DobavCL.otpok.Text:=client.otpok;
+DobavCL.telpok.Text:=client.telpok;
+DobavCL.paspok.Text:=client.paspok;
+DobavCL.innpok.Text:=client.innpok;
+end;
+
+procedure TDobavCL.Button1Click(Sender: TObject);
+begin //добавить
+impok.Clear;
+fampok.clear;
+otpok.clear;
+telpok.clear;
+paspok.clear;
+innpok.Clear;
+ibQuery1.Last;
+kodpok.Text:=ibQuery1.FieldByName('id_custimers').Value+ '1';
+end;
+
+procedure TDobavCL.Button3Click(Sender: TObject);
+begin   //удалить
+IBQuery1.SQL.Text:='DELETE from customers where ID_custimers='+DobavCL.kodpok.Text;
+IBQuery1.ExecSQL;
+
+IbTransaction1.Commit;
+IBQuery1.Active:=false;
+IBQuery1.Active:=true;
+IBQuery1.Last;
+Client.datavalue;
+Client.showdata;
+end;
+
+procedure TDobavCL.Button4Click(Sender: TObject);
+begin        //в начало
+
+if not Ibquery1.Bof then
+begin
+Ibquery1.First;
+Client.datavalue;
+Client.showdata;
+end
+else
+showmessage('В начале');
+end;
+
+procedure TDobavCL.Button5Click(Sender: TObject);
+begin              //вперед
+if not IBQuery1.Eof then
+begin
+IBQuery1.Next;
+Client.datavalue;
+Client.showdata;
+end
+else
+showmessage('В конце');
+end;
+
+procedure TDobavCL.Button6Click(Sender: TObject);
+begin               //назад
+if not IBQuery1.Bof then
+begin
+IBQuery1.Prior;
+Client.datavalue;
+Client.showdata;
+end
+else
+showmessage('В начале');
+end;
+
+procedure TDobavCL.Button7Click(Sender: TObject);
+begin                 //в конец
+if not IBQuery1.Eof then
+begin
+IBQuery1.Last;
+Client.datavalue;
+Client.showdata;
+end
+else
+showmessage('В конце');
+end;
+
+procedure TDobavCL.Button8Click(Sender: TObject);
+begin                //выбераем значения которые хотим вводить в таблице
+IBQuery1.SQL.Clear;
+IBQuery1.Active:=false;
+IBQuery1.SQL.Add('INSERT INTO CUSTOMERS(id_custimers,firstname,lastname,patronymic,tel_customers,passport,inn)');
+IBQuery1.SQL.Add('VALUES (:id_custimers, :firstname, :lastname, :patronymic, :tel_customers,:passport, :inn)');
+IBQuery1.FieldByName('id_custimers').Value:=DobavCL.kodpok.Text;
+IBQuery1.FieldByName('firstname').Value:=DobavCL.impok.text;
+IBQuery1.FieldByName('lastname').Value:=DobavCL.fampok.text;
+IBQuery1.FieldByName('patronymic').Value:=DobavCL.otpok.text;
+IBQuery1.FieldByName('tel_customers').Value:=DobavCL.telpok.text;
+IBQuery1.FieldByName('passport').Value:=DobavCL.paspok.text;
+IBQuery1.FieldByName('inn').Value:=DobavCL.innpok.text;
+IBQuery1.Open;
+IbTransaction1.Commit;
+
+IBQuery1.Active:=false;
+IBQuery1.Active:=true;
+IBQuery1.Last;
+Client.datavalue;
+Client.showdata;
+end;
+
+procedure TDobavCL.FormCreate(Sender: TObject);
+begin
+Client:=TClient.Create;
+Client.datavalue;
+Client.showdata;
+end;
+
+
+procedure TDobavCL.FormActivate(Sender: TObject);
+begin
+DobavCL.kodpok.Text:=IBQuery1.FieldByName('id_custimers').Value;
+DobavCL.impok.text:=IBQuery1.FieldByName('firstname').Value;
+DobavCL.fampok.text:=IBQuery1.FieldByName('lastname').Value;
+DobavCL.otpok.text:=IBQuery1.FieldByName('patronymic').Value;
+DobavCL.telpok.text:=IBQuery1.FieldByName('tel_customers').Value;
+DobavCL.paspok.text:=IBQuery1.FieldByName('passport').Value;
+DobavCL.innpok.text:=IBQuery1.FieldByName('inn').Value;
+end;
+end.
+

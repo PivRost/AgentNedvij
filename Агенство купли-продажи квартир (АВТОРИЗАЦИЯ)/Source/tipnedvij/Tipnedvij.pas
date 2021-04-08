@@ -1,0 +1,99 @@
+unit Tipnedvij;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Data.Win.ADODB, Vcl.StdCtrls, IBX.IBDatabase, IBX.IBCustomDataSet, IBX.IBTable,
+  IBX.IBQuery, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.Imaging.jpeg;
+
+type
+  TTip = class(TForm)
+    Nachalo: TButton;
+    vverx: TButton;
+    vniz: TButton;
+    konec: TButton;
+    DataSource1: TDataSource;
+    IBDatabase1: TIBDatabase;
+    IBTransaction1: TIBTransaction;
+    Label1: TLabel;
+    DBGrid1: TDBGrid;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Image1: TImage;
+    IBQuery1: TIBQuery;
+    procedure vnizClick(Sender: TObject);
+    procedure vverxClick(Sender: TObject);
+    procedure konecClick(Sender: TObject);
+    procedure NachaloClick(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Tip: TTip;
+
+implementation
+
+{$R *.dfm}
+
+
+procedure Ttip.konecClick(Sender: TObject);
+begin
+if not ibquery1.eof then                               // в конец
+ibquery1.last else
+messageDlg('Конец записи',mtinformation,[Mbok],0);
+end;
+
+procedure TTip.NachaloClick(Sender: TObject);
+begin
+if not ibquery1.bof then
+ibquery1.first else                                 //   в начало
+messageDlg('Начало записи',mtinformation,[Mbok],0);
+end;
+
+procedure Ttip.VnizClick(Sender: TObject);
+var
+i:integer;
+begin
+if not ibquery1.eof then
+begin
+ibquery1.next;
+for I:= 1 to 11 do
+begin
+label3.Caption:=ibquery1.fieldbyname('id_tipnedvij').Value;
+label4.Caption:=ibquery1.FieldByName('tipnedvij').Value;
+end
+end
+else
+messageDlg('Конец записи',mtinformation,[Mbok],0);
+end;
+
+procedure TTip.vverxClick(Sender: TObject);
+var
+i:integer;
+begin
+if not ibquery1.bof then
+begin                              //     назад
+ibquery1.prior;
+for I:= 1 to 11 do
+begin
+label3.Caption:=ibquery1.fieldbyname('id_tipnedvij').Value;
+label4.Caption:=ibquery1.FieldByName('tipnedvij').Value;
+end
+end
+else
+messageDlg('начало записи',mtinformation,[Mbok],0);
+end;
+
+procedure TTip.FormActivate(Sender: TObject);
+begin
+label3.Caption:= ibquery1.fieldbyname('ID_TIPNEDVIJ').value;
+label4.Caption:= ibquery1.fieldbyname ('TIPNEDVIJ').value
+end;
+end.

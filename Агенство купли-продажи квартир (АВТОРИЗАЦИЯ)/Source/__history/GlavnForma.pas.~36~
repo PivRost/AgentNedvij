@@ -1,0 +1,85 @@
+unit GlavnForma;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls,
+  Vcl.Imaging.jpeg, Vcl.StdCtrls,ShellAPI;
+
+type
+  TForm1 = class(TForm)
+    MainMenu1: TMainMenu;
+    N1: TMenuItem;
+    N2: TMenuItem;
+    N3: TMenuItem;
+    N4: TMenuItem;
+    N6: TMenuItem;
+    N7: TMenuItem;
+    Image1: TImage;
+    N5: TMenuItem;
+    N9: TMenuItem;
+    Button1: TButton;
+    Button2: TButton;
+    procedure N2Click(Sender: TObject);
+    procedure N3Click(Sender: TObject);
+    procedure N7Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure N5Click(Sender: TObject);
+    procedure N9Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+uses Avtoriz, Registr, Tipnedvij, Spisokrab;
+procedure Avtoriz; external 'Avoriz.dll';
+procedure Registr; external 'Registrator.dll';
+procedure Spisok; external 'Spisokrabot.dll';
+procedure Tipnedvij; external 'Tipned.dll';
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+Tipnedvij;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+Spisok;
+end;
+
+procedure TForm1.N2Click(Sender: TObject);
+begin
+Avtoriz;//открываем форму авторизации через меню
+end;
+
+procedure TForm1.N3Click(Sender: TObject);
+begin
+Registr;//открываем форму регистрации через меню
+end;
+
+procedure TForm1.N5Click(Sender: TObject);
+begin
+ShellExecute(0, nil, 'D:\3 курс\Ѕакулин\K”–—ќ¬јя\јгенство купли-продажи квартир (ј¬“ќ–»«ј÷»я)\Doc\rieldog.pdf', nil, nil, SW_SHOWNORMAL);
+end;
+
+procedure TForm1.N7Click(Sender: TObject);
+begin
+Form1.Close; //закрываем приложение
+end;
+
+procedure TForm1.N9Click(Sender: TObject);
+begin
+ShellExecute(0, nil, 'D:\3 курс\Ѕакулин\K”–—ќ¬јя\јгенство купли-продажи квартир (ј¬“ќ–»«ј÷»я)\Doc\buhdog.pdf', nil, nil, SW_SHOWNORMAL);
+end;
+
+end.

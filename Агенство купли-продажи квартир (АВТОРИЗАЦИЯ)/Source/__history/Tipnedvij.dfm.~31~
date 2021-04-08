@@ -1,0 +1,156 @@
+object Tip: TTip
+  Left = 0
+  Top = 0
+  ActiveControl = DBGrid1
+  Caption = #1058#1080#1087' '#1085#1077#1076#1074#1080#1078#1080#1084#1086#1089#1090#1080
+  ClientHeight = 410
+  ClientWidth = 523
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 8
+    Top = 16
+    Width = 101
+    Height = 13
+    Caption = #1050#1086#1076' '#1085#1077#1076#1074#1080#1078#1080#1084#1086#1089#1090#1080':'
+  end
+  object Label2: TLabel
+    Left = 8
+    Top = 48
+    Width = 99
+    Height = 13
+    Caption = #1058#1080#1087' '#1085#1077#1076#1074#1080#1078#1080#1084#1086#1089#1090#1080':'
+  end
+  object Label3: TLabel
+    Left = 115
+    Top = 16
+    Width = 3
+    Height = 13
+  end
+  object Label4: TLabel
+    Left = 113
+    Top = 48
+    Width = 3
+    Height = 13
+  end
+  object Button1: TButton
+    Left = 141
+    Top = 337
+    Width = 226
+    Height = 65
+    Caption = #1042#1077#1088#1085#1091#1090#1100#1089#1103' '#1085#1072' '#1075#1083#1072#1074#1085#1086#1077' '#1087#1088#1080#1083#1086#1078#1077#1085#1080#1077
+    TabOrder = 0
+    OnClick = Button1Click
+  end
+  object Nachalo: TButton
+    Left = 141
+    Top = 306
+    Width = 52
+    Height = 25
+    Caption = #1053#1072#1095#1072#1083#1086
+    TabOrder = 1
+    OnClick = NachaloClick
+  end
+  object vverx: TButton
+    Left = 199
+    Top = 306
+    Width = 52
+    Height = 25
+    Caption = #1042#1074#1077#1088#1093
+    TabOrder = 2
+    OnClick = vverxClick
+  end
+  object vniz: TButton
+    Left = 257
+    Top = 306
+    Width = 52
+    Height = 25
+    Caption = #1042#1085#1080#1079
+    TabOrder = 3
+    OnClick = vnizClick
+  end
+  object konec: TButton
+    Left = 315
+    Top = 306
+    Width = 52
+    Height = 25
+    Caption = #1050#1086#1085#1077#1094
+    TabOrder = 4
+    OnClick = konecClick
+  end
+  object DBGrid1: TDBGrid
+    Left = 8
+    Top = 88
+    Width = 507
+    Height = 212
+    DataSource = DataSource1
+    TabOrder = 5
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object DataSource1: TDataSource
+    DataSet = IBTable1
+    Left = 56
+    Top = 304
+  end
+  object IBTable1: TIBTable
+    Database = IBDatabase1
+    Transaction = IBTransaction1
+    Active = True
+    BufferChunks = 1000
+    CachedUpdates = False
+    FieldDefs = <
+      item
+        Name = 'ID_TIPNEDVIJ'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'TIPNEDVIJ'
+        DataType = ftWideString
+        Size = 20
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY48'
+        Fields = 'ID_TIPNEDVIJ'
+        Options = [ixPrimary, ixUnique]
+      end>
+    StoreDefs = True
+    TableName = 'TIP_NEDVIJ'
+    UniDirectional = False
+    Left = 408
+    Top = 320
+  end
+  object IBDatabase1: TIBDatabase
+    Connected = True
+    DatabaseName = 
+      'localhost:D:\3 '#1082#1091#1088#1089'\'#1041#1072#1082#1091#1083#1080#1085'\K'#1059#1056#1057#1054#1042#1040#1071'\'#1040#1075#1077#1085#1089#1090#1074#1086' '#1082#1091#1087#1083#1080'-'#1087#1088#1086#1076#1072#1078#1080' '#1082#1074#1072#1088 +
+      #1090#1080#1088' ('#1040#1042#1058#1054#1056#1048#1047#1040#1062#1048#1071')\Data\DATAB.IB'
+    Params.Strings = (
+      'user_name=SYSDBA'
+      'password=masterkey'
+      'lc_ctype=WIN1251')
+    LoginPrompt = False
+    DefaultTransaction = IBTransaction1
+    ServerType = 'IBServer'
+    Left = 472
+    Top = 304
+  end
+  object IBTransaction1: TIBTransaction
+    Active = True
+    DefaultDatabase = IBDatabase1
+    Left = 464
+    Top = 352
+  end
+end

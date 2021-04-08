@@ -1,0 +1,59 @@
+unit Avtoriz;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Data.DB, Data.Win.ADODB,
+  IBX.IBDatabase, IBX.IBCustomDataSet, IBX.IBTable, IBX.IBQuery;
+
+type
+  TAvtorizForm = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    LogEdit: TEdit;
+    PwEdit: TEdit;
+    Button1: TButton;
+    IBDatabase1: TIBDatabase;
+    IBTransaction1: TIBTransaction;
+    IBQuery1: TIBQuery;
+    DataSource1: TDataSource;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  AvtorizForm: TAvtorizForm;
+
+implementation
+
+{$R *.dfm}
+
+procedure TAvtorizForm.Button1Click(Sender: TObject);
+begin
+  ADOQuery1.sql.Text :=
+    'select * from AUTORIZ where (login=:login) and (password=:password)';
+  // выбираем  поля логин и пароль в  БД
+  ADOQuery1.Parameters.ParamByName('login').Value := LogEdit.Text;
+  // записываем значение логина в едит логина
+  ADOQuery1.Parameters.ParamByName('password').Value := PwEdit.Text;
+  // записываем значение пароля в едит пароль
+  ADOQuery1.execSQL; // выполняет запрос
+  ADOQuery1.Open; // открывает бд
+
+  if ADOQuery1.FieldByName('login').AsString <> '' then
+  // проверяем правильно написание логина
+  begin
+    showmessage('Вы успешно авторизировались'); // сообщение, если все верно
+    AvtorizForm.close(); // форма закрывается
+  end
+  else
+    showmessage('Неверный логи или пароль'); // сообщение, если неверно
+end;
+
+end.

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.191,D:\Программы\Documents\Embarcadero\Studio\Projects\rieltori.pas=D:\Программы\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.528,=D:\Программы\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.191,D:\Программы\Documents\Embarcadero\Studio\Projects\rieltori.dfm=D:\Программы\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.173,D:\Программы\Documents\Embarcadero\Studio\Projects\riel.dproj=D:\Программы\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.780,D:\3 курс\Бакулин\KУРСОВАЯ\Агенство купли-продажи квартир (АВТОРИЗАЦИЯ)\Source\riel.dproj=D:\Программы\Documents\Embarcadero\Studio\Projects\riel.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.632,D:\3 курс\Бакулин\KУРСОВАЯ\Агенство купли-продажи квартир (АВТОРИЗАЦИЯ)\Source\rieltori.pas=D:\Программы\Documents\Embarcadero\Studio\Projects\rieltori.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.632,D:\3 курс\Бакулин\KУРСОВАЯ\Агенство купли-продажи квартир (АВТОРИЗАЦИЯ)\Source\rieltori.dfm=D:\Программы\Documents\Embarcadero\Studio\Projects\rieltori.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

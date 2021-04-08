@@ -1,0 +1,108 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{E880FDE0-2B0C-4763-BA6B-759144CECD87}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="dogovor\Dogovor.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="tipnedvij\Tipned.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="autoriz\Avoriz.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="nedvij\Nedvij.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="spisokCL\dobavclienta.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="spisokrabot\SpisokRab.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="mainfrm\mainform.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Dogovor">
+        <MSBuild Projects="dogovor\Dogovor.dproj"/>
+    </Target>
+    <Target Name="Dogovor:Clean">
+        <MSBuild Projects="dogovor\Dogovor.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Dogovor:Make">
+        <MSBuild Projects="dogovor\Dogovor.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Tipned">
+        <MSBuild Projects="tipnedvij\Tipned.dproj"/>
+    </Target>
+    <Target Name="Tipned:Clean">
+        <MSBuild Projects="tipnedvij\Tipned.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Tipned:Make">
+        <MSBuild Projects="tipnedvij\Tipned.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Avoriz">
+        <MSBuild Projects="autoriz\Avoriz.dproj"/>
+    </Target>
+    <Target Name="Avoriz:Clean">
+        <MSBuild Projects="autoriz\Avoriz.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Avoriz:Make">
+        <MSBuild Projects="autoriz\Avoriz.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Nedvij">
+        <MSBuild Projects="nedvij\Nedvij.dproj"/>
+    </Target>
+    <Target Name="Nedvij:Clean">
+        <MSBuild Projects="nedvij\Nedvij.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Nedvij:Make">
+        <MSBuild Projects="nedvij\Nedvij.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dobavclienta">
+        <MSBuild Projects="spisokCL\dobavclienta.dproj"/>
+    </Target>
+    <Target Name="dobavclienta:Clean">
+        <MSBuild Projects="spisokCL\dobavclienta.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dobavclienta:Make">
+        <MSBuild Projects="spisokCL\dobavclienta.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SpisokRab">
+        <MSBuild Projects="spisokrabot\SpisokRab.dproj"/>
+    </Target>
+    <Target Name="SpisokRab:Clean">
+        <MSBuild Projects="spisokrabot\SpisokRab.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SpisokRab:Make">
+        <MSBuild Projects="spisokrabot\SpisokRab.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="mainform">
+        <MSBuild Projects="mainfrm\mainform.dproj"/>
+    </Target>
+    <Target Name="mainform:Clean">
+        <MSBuild Projects="mainfrm\mainform.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="mainform:Make">
+        <MSBuild Projects="mainfrm\mainform.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Dogovor;Tipned;Avoriz;Nedvij;dobavclienta;SpisokRab;mainform"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Dogovor:Clean;Tipned:Clean;Avoriz:Clean;Nedvij:Clean;dobavclienta:Clean;SpisokRab:Clean;mainform:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Dogovor:Make;Tipned:Make;Avoriz:Make;Nedvij:Make;dobavclienta:Make;SpisokRab:Make;mainform:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

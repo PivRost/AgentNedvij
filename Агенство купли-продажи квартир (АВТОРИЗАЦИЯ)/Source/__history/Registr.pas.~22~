@@ -1,0 +1,40 @@
+unit Registr;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
+  Data.Win.ADODB, Data.DB, System.RegularExpressions, IBX.IBCustomDataSet,
+  IBX.IBQuery, IBX.IBDatabase;
+
+type
+  TRegForm = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Button1: TButton;
+    IBDatabase1: TIBDatabase;
+    IBTransaction1: TIBTransaction;
+    IBQuery1: TIBQuery;
+    DBEdit1: TDBEdit;
+    DataSource1: TDataSource;
+    procedure DBEdit1Change(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  RegForm: TRegForm;
+  regex:tregex;  //регулярное выражение для этого прописали в uses System.RegularExpressions
+
+implementation
+
+{$R *.dfm}
+
+
+
+
+end.

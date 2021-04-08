@@ -1,0 +1,100 @@
+object Tip: TTip
+  Left = 0
+  Top = 0
+  Caption = #1058#1080#1087' '#1085#1077#1076#1074#1080#1078#1080#1084#1086#1089#1090#1080
+  ClientHeight = 410
+  ClientWidth = 523
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DBGrid1: TDBGrid
+    Left = 3
+    Top = 3
+    Width = 516
+    Height = 294
+    Align = alCustom
+    BiDiMode = bdRightToLeftNoAlign
+    DataSource = DataSource1
+    ParentBiDiMode = False
+    ReadOnly = True
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object Button1: TButton
+    Left = 141
+    Top = 337
+    Width = 226
+    Height = 65
+    Caption = #1042#1077#1088#1085#1091#1090#1100#1089#1103' '#1085#1072' '#1075#1083#1072#1074#1085#1086#1077' '#1087#1088#1080#1083#1086#1078#1077#1085#1080#1077
+    TabOrder = 1
+    OnClick = Button1Click
+  end
+  object Nachalo: TButton
+    Left = 141
+    Top = 306
+    Width = 52
+    Height = 25
+    Caption = #1053#1072#1095#1072#1083#1086
+    TabOrder = 2
+    OnClick = NachaloClick
+  end
+  object vverx: TButton
+    Left = 199
+    Top = 306
+    Width = 52
+    Height = 25
+    Caption = #1042#1074#1077#1088#1093
+    TabOrder = 3
+    OnClick = vverxClick
+  end
+  object vniz: TButton
+    Left = 257
+    Top = 306
+    Width = 52
+    Height = 25
+    Caption = #1042#1085#1080#1079
+    TabOrder = 4
+    OnClick = vnizClick
+  end
+  object konec: TButton
+    Left = 315
+    Top = 306
+    Width = 52
+    Height = 25
+    Caption = #1050#1086#1085#1077#1094
+    TabOrder = 5
+    OnClick = konecClick
+  end
+  object ADOConnection1: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=MSDASQL.1;Persist Security Info=False;User ID=SYSDBA;Da' +
+      'ta Source=Nedvij;Initial Catalog=Nedvij'
+    LoginPrompt = False
+    Left = 56
+    Top = 344
+  end
+  object ADOTable1: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = 'TIP_NEDVIJ'
+    Left = 408
+    Top = 320
+  end
+  object DataSource1: TDataSource
+    DataSet = ADOTable1
+    Left = 56
+    Top = 304
+  end
+end

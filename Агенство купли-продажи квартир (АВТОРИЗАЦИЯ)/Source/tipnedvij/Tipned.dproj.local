@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.597,=D:\3 курс\Бакулин\KУРСОВАЯ\Агенство купли-продажи квартир (АВТОРИЗАЦИЯ)\Source\tipnedvij\Tipnedvij.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.318,=D:\3 курс\Бакулин\KУРСОВАЯ\Агенство купли-продажи квартир (АВТОРИЗАЦИЯ)\Source\Tipnedvij.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.071,D:\Программы\Documents\Embarcadero\Studio\Projects\Tipned.dproj=D:\3 курс\Бакулин\KУРСОВАЯ\Агенство купли-продажи квартир (АВТОРИЗАЦИЯ)\Source\Tipned.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.515,D:\Программы\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\Программы\Documents\Embarcadero\Studio\Projects\Tipned.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.450,D:\3 курс\Бакулин\KУРСОВАЯ\Агенство купли-продажи квартир (АВТОРИЗАЦИЯ)\Source\tipnedvij\Tipned.dproj=D:\3 курс\Бакулин\KУРСОВАЯ\Агенство купли-продажи квартир (АВТОРИЗАЦИЯ)\Source\Tipned.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

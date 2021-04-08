@@ -1,0 +1,18 @@
+program Reg;
+
+uses
+  Vcl.Forms,
+  GlavnForma in 'GlavnForma.pas' {Form1},
+  Avtoriz in 'Avtoriz.pas' {AvtorizForm},
+  Registr in 'Registr.pas' {RegForm};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TAvtorizForm, AvtorizForm);
+  Application.CreateForm(TRegForm, RegForm);
+  Application.Run;
+end.

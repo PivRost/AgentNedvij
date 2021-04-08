@@ -1,0 +1,53 @@
+unit Avtoriz;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Data.DB, Data.Win.ADODB,
+  IBX.IBDatabase, IBX.IBCustomDataSet, IBX.IBTable;
+
+type
+  TAvtorizForm = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    LogEdit: TEdit;
+    PwEdit: TEdit;
+    Button1: TButton;
+    ADOConnection1: TADOConnection;
+    ADOTable1: TADOTable;
+    ADOQuery1: TADOQuery;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  AvtorizForm: TAvtorizForm;
+
+
+implementation
+
+{$R *.dfm}
+
+procedure TAvtorizForm.Button1Click(Sender: TObject);
+begin
+adoquery1.sql.Text:='select * from AUTORIZ where (login=:login) and (password=:password)';
+  adoquery1.Parameters.ParamByName('login').Value:=logedit.Text;
+    adoquery1.Parameters.ParamByName('password').Value:=pwedit.Text;
+    adoquery1.execSQL;
+    adoquery1.Open;
+
+    if adoquery1.FieldByName('login').AsString<>'' then
+    begin
+      showmessage('Вы успешно авторизировались');
+      AvtorizForm.close ();
+    end
+    else
+     showmessage('Неверный пароль или логин');
+end;
+
+end.

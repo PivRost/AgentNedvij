@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.571,D:\Программы\Documents\Embarcadero\Studio\Projects\Registrator.dproj=D:\3 курс\Бакулин\KУРСОВАЯ\Агенство купли-продажи квартир (АВТОРИЗАЦИЯ)\Source\Registrator.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.451,D:\3 курс\Бакулин\KУРСОВАЯ\Агенство купли-продажи квартир (АВТОРИЗАЦИЯ)\Source\Registrator.dproj=D:\3 курс\Бакулин\KУРСОВАЯ\Агенство купли-продажи квартир (АВТОРИЗАЦИЯ)\Source\registr\Registrator.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.061,=D:\3 курс\Бакулин\KУРСОВАЯ\Агенство купли-продажи квартир (АВТОРИЗАЦИЯ)\Source\Registr.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.151,=D:\3 курс\Бакулин\KУРСОВАЯ\Агенство купли-продажи квартир (АВТОРИЗАЦИЯ)\Source\registr\Registr.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.295,D:\Программы\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\Программы\Documents\Embarcadero\Studio\Projects\Registrator.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
